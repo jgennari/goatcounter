@@ -8,14 +8,11 @@ on:
   workflow_dispatch:  # click the button on Github repo!
 
 jobs:
-  update_external_airflow_fork:
+  sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: TobKed/github-forks-sync-action@master
+      - uses: tgymnich/fork-sync@v1.8
         with:
-          upstream_repository: arp242/goatcounter
-          target_repository: joeygennari/goatcounter
-          upstream_branch: master
-          target_branch: master
-          force: true
-          tags: true
+          owner: arp242
+          base: master
+          head: master
